@@ -1,0 +1,241 @@
+{% load static %}
+<!DOCTYPE html>
+<html dir="rtl" lang="fa" data-brk-skin="brk-blue.css">
+
+<head>
+	<title>پوژمان</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="shortcut icon" href="{% static 'favicon.ico'%}">
+	<link rel="apple-touch-icon-precomposed" href="{% static 'favicon.ico'%}">
+	<meta name="theme-color" content="#2775FF">
+	<meta name="keywords" content="themeforest, theme, html, template">
+	<meta name="description" content="themeforest, theme, html, template">
+	<link rel="stylesheet" id="brk-direction-bootstrap" href="{% static 'css/assets/bootstrap-rtl.css'%}">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+		integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+	<link rel="stylesheet" id="brk-skin-color" href="{% static 'css/skins/brk-blue.css'%}">
+	<link id="brk-base-color" rel="stylesheet" href="{% static 'css/skins/brk-base-color.css'%}">
+	<link rel="stylesheet" id="brk-direction-offsets" href="{% static 'css/assets/offsets-rtl.css' %}">
+	<link id="brk-css-min" rel="stylesheet" href="{% static 'css/assets/styles.min.css'%}">
+	<link rel="stylesheet" href="{% static 'vendor/revslider/css/settings.css' %}">
+</head>
+<body>
+     <div class="brk-loader">
+		<div class="brk-loader__loader"></div>
+	</div>
+
+	<style>
+		#rev_slider_5_1_wrapper .tp-loader.spinner2 {
+			background-color: #0071fc !important;
+		}
+	</style>
+	<style>
+		.brk-i-slider {
+			font-weight: 400 !important
+		}
+	</style>
+	<style>
+		.custom.tparrows {
+			cursor: pointer;
+			background: #000;
+			background: rgba(0, 0, 0, 0.5);
+			width: 40px;
+			height: 40px;
+			position: absolute;
+			display: block;
+			z-index: 100
+		}
+
+		.custom.tparrows:hover {
+			background: #000
+		}
+
+		.custom.tparrows:before {
+			font-family: "revicons";
+			font-size: 15px;
+			color: #fff;
+			display: block;
+			line-height: 40px;
+			text-align: center
+		}
+
+		.custom.tparrows.tp-leftarrow:before {
+			content: "\e824"
+		}
+
+		.custom.tparrows.tp-rightarrow:before {
+			content: "\e825"
+		}
+	</style>
+    <div class="main-page">
+		<div class="brk-header-mobile" data-brk-library="component__header">
+			<div class="brk-header-mobile__open brk-header-mobile__open_white">
+				<span></span>
+			</div>
+			<div class="brk-header-mobile__logo">
+				<a href="#"><img src="{% static 'img/logo-2.png'%}" alt=""></a>
+			</div>
+		</div>
+
+
+    {% include 'inc/navbar.html' %}
+    {% include 'inc/slider.html' %}
+
+    <div class="jumbotron">
+        {% include 'inc/messages.html' %}
+        {% block content %}{% endblock %}
+    </div>
+
+
+
+    <footer class="brk-footer brk-footer-1 position-relative" id="contact"
+			data-brk-library="component__footer,twitter_init">
+			<div class="brk-footer__wrapper brk-footer__wrapper_shadow">
+
+				<div class="pt-60 brk-light-gradient-90deg-94 border-bottom-3 brk-border-color-light brk-shadow-light">
+					<div class="container">
+						<div class="brk-dashed-logo mb-20">
+							<span class="brk-dashed-logo__line"></span>
+							<a class="brk-dashed-logo__link ml-25 mr-25">
+								<img src="{% static 'img/logo.svg'%}" height="31" width="170" alt="logo">
+							</a>
+							<span class="brk-dashed-logo__line"></span>
+						</div>
+						<div class="brk-social-links brk-white-font-color brk-social-links_opacity d-flex justify-content-center mb-40 font__size-12"
+							data-brk-library="component__social_links">
+							<a href="#" class="brk-social-links__item">
+								<i class="fab fa-twitter"></i>
+							</a>
+							<a href="#" class="brk-social-links__item">
+								<i class="fab fa-instagram"></i>
+							</a>
+							<a href="#" class="brk-social-links__item">
+								<i class="fab fa-google-plus-g"></i>
+							</a>
+							<a href="#" class="brk-social-links__item">
+								<i class="fab fa-youtube"></i>
+							</a>
+							<a href="#" class="brk-social-links__item">
+								<i class="fab fa-vimeo"></i>
+							</a>
+							<a href="#" class="brk-social-links__item">
+								<i class="fab fa-vk"></i>
+							</a>
+						</div>
+						<div class="brk-footer__rights pt-15 pb-20 text-center">
+							<p class="font__family-open-sans font__size-14 font__weight-normal line__height-14">© 2018
+								Berserk All rights reserved</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+    <a href="#top" id="toTop"></a>
+	<script defer="defer" src="{% static 'js/scripts.min.js'%}"></script>
+	<script defer="defer" src="{% static 'vendor/revslider/js/jquery.themepunch.tools.min.js'%}"></script>
+	<script defer="defer" src="{% static 'vendor/revslider/js/jquery.themepunch.revolution.min.js'%}"></script>
+	<script defer="defer" src="{% static 'vendor/revslider/js/extensions/revolution.extension.layeranimation.min.js'%}"></script>
+	<script defer="defer" src="{% static 'vendor/revslider/js/extensions/revolution.extension.navigation.min.js'%}"></script>
+	<script defer="defer" src="{% static 'vendor/revslider/js/extensions/revolution.extension.parallax.min.js'%}"></script>
+	<script defer="defer" src="{% static 'vendor/revslider/js/extensions/revolution.extension.slideanims.min.js'%}"></script>
+	<script defer="defer" src="{% static 'vendor/revslider/js/extensions/revolution.extension.actions.min.js'%}"></script>
+	<script>
+		var revapi5,
+			tpj;
+		(function () {
+			if (!/loaded|interactive|complete/.test(document.readyState)) document.addEventListener("DOMContentLoaded", onLoad);
+			else onLoad();
+
+			function onLoad() {
+				if (tpj === undefined) {
+					tpj = jQuery;
+					if ("on" == "on") tpj.noConflict();
+				}
+				if (tpj("#rev_slider_5_1").revolution == undefined) {
+					revslider_showDoubleJqueryError("#rev_slider_5_1");
+				} else {
+					revapi5 = tpj("#rev_slider_5_1").show().revolution({
+						sliderType: "standard",
+						jsFileLocation: "{% static 'vendor/revslider/js/'%}",
+						sliderLayout: "fullscreen",
+						dottedOverlay: "none",
+						delay: 5000,
+						navigation: {
+							keyboardNavigation: "off",
+							keyboard_direction: "horizontal",
+							mouseScrollNavigation: "off",
+							mouseScrollReverse: "default",
+							onHoverStop: "off",
+							arrows: {
+								style: "custom",
+								enable: true,
+								hide_onmobile: false,
+								hide_onleave: true,
+								hide_delay: 200,
+								hide_delay_mobile: 1200,
+								tmp: '',
+								left: {
+									h_align: "left",
+									v_align: "center",
+									h_offset: 10,
+									v_offset: 0
+								},
+								right: {
+									h_align: "right",
+									v_align: "center",
+									h_offset: 10,
+									v_offset: 0
+								}
+							}
+						},
+						responsiveLevels: [1240, 1024, 778, 480],
+						visibilityLevels: [1240, 1024, 778, 480],
+						gridwidth: [1200, 992, 768, 576],
+						gridheight: [960, 768, 960, 720],
+						lazyType: "none",
+						parallax: {
+							type: "mouse",
+							origo: "slidercenter",
+							speed: 400,
+							speedbg: 0,
+							speedls: 0,
+							levels: [4, 6, 8, 10, 12, 30, 35, 40, 45, 46, 47, 48, 49, 50, 51, 55],
+							disable_onmobile: "on"
+						},
+						shadow: 0,
+						spinner: "spinner2",
+						stopLoop: "off",
+						stopAfterLoops: -1,
+						stopAtSlide: -1,
+						shuffle: "off",
+						autoHeight: "off",
+						fullScreenAutoWidth: "on",
+						fullScreenAlignForce: "off",
+						fullScreenOffsetContainer: "",
+						fullScreenOffset: "",
+						disableProgressBar: "on",
+						hideThumbsOnMobile: "on",
+						hideSliderAtLimit: 0,
+						hideCaptionAtLimit: 0,
+						hideAllCaptionAtLilmit: 0,
+						debugMode: false,
+						fallbacks: {
+							simplifyAll: "off",
+							nextSlideOnWindowFocus: "off",
+							disableFocusListener: false,
+						}
+					});
+				}; /* END OF revapi call */
+			}; /* END OF ON LOAD FUNCTION */
+		}()); /* END OF WRAPPING FUNCTION */
+	</script>
+</body>
+
+</html>
+
+
+
+

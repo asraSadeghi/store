@@ -1,0 +1,285 @@
+{% load static %}
+{% block content %}
+<header class="brk-header d-lg-flex flex-column brk-header_style-1 brk-header_color-white"
+			style="display: none;" data-logo-src=" {% static 'img/logo-dark-2.png' %} " data-bg-mobile="img/brk-bg-mobile-menu.jpg"
+			data-sticky-hide="0" data-brk-library="component__header">
+			<div class="brk-header__top-bar brk-header_border-bottom order-lg-1 order-2 brk-bg-grad brk-header__top-bar_hide"
+				data-top="3" style="height: 46px;">
+				<div class="brk-header__title font__family-montserrat font__weight-bold">ارتباط با ما</div>
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-lg-6 align-self-lg-stretch text-left">
+							<div class="brk-header__element brk-header__element_skin-1 brk-header__item">
+								<a href="#" class="brk-header__element--wrap">
+									<i class="far fa-envelope"></i>
+									<span class="brk-header__element--label">admin@berserk.com</span>
+								</a>
+							</div>
+
+						</div>
+						<div class="col-lg-6 align-self-lg-stretch text-left text-lg-right">
+
+							<div class="brk-header__element brk-header__element_skin-1 brk-header__item">
+								<a href=" {% static 'checkout.html' %} " class="brk-header__element--wrap">
+									<i class="fas fa-chevron-circle-right"></i>
+									<span class="brk-header__element--label">پرداخت</span>
+								</a>
+							</div>
+							<div class="brk-header__element brk-header__element_skin-1 brk-header__item">
+								<?php
+								if(isset($_SESSION['user_id'])){  ?>
+								<a href=" {% static 'index.php?c=user&a=logout' %} " class="brk-header__element--wrap">
+									<i class="fas fa-sign-in-alt"></i>
+									<span class="brk-header__element--label"><?php  echo $_SESSION['user_name']; ?></span>
+								</a>
+								<?php } else
+								{?>
+
+										<i class="fas fa-sign-in-alt"></i>
+										<span class="brk-header__element--label"><?php echo "<a href=' {% static 'index.php?c=user&a=register' %} '>ثبت نام</a>";
+											echo "<a href=' {% static 'index.php?c=user&a=login' %} '>ورود</a>";?></span>
+
+								<?php }
+								?>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="brk-header__main-bar brk-header_border-bottom order-lg-2 order-1" style="height: 72px;">
+				<div class="container-fluid">
+					<div class="row no-gutters align-items-center">
+						<div class="col-lg-auto align-self-lg-stretch d-none d-lg-block">
+							<div class="brk-open-top-bar brk-header__item">
+								<div class="brk-open-top-bar__circle"></div>
+								<div class="brk-open-top-bar__circle"></div>
+								<div class="brk-open-top-bar__circle"></div>
+							</div>
+						</div>
+						<div class="col-lg align-self-lg-stretch">
+							<nav class="brk-nav brk-header__item">
+								<ul class="brk-nav__menu">
+									<li class="brk-nav__children brk-nav__full-width">
+										<a href=" {% static '/' %} " data-brk-library="component__tabs">
+											<span>صفحه اصلی</span>
+										</a>
+
+									</li>
+									<li class="brk-nav__children brk-nav__full-width">
+										<a href=" {% static '/' %} " data-brk-library="component__tabs">
+											<span>خدمات</span>
+										</a>
+
+									</li>
+									<li class="brk-nav__children brk-nav__full-width">
+										<a href=" {% static '/' %} " data-brk-library="component__tabs">
+											<span>ارتباط با ما</span>
+										</a>
+
+									</li>
+									<li class="brk-nav__children brk-nav__drop-down-effect">
+										<a href="#">
+											<span> محصولات </span>
+										</a>
+										<ul class="brk-nav__sub-menu brk-nav-drop-down font__family-montserrat">
+                                            {% for category in  categories %}
+
+
+											<li class="dd-effect brk-nav__children brk-nav__drop-down-effect">
+												<a href="{{ category.get_absolute_url }}">{{ category.name }} <i class="fas fa-angle-right"></i></a>
+												{% for sub in category.scategory.all %}
+                                                <ul class="brk-nav__sub-menu brk-nav-drop-down font__family-montserrat">
+
+													<li class="dd-effect"><a href=" {{ sub.get_absolute_url }} ">{{ sub.name }}</a></li>
+
+												</ul>
+                                                {% endfor %}
+											</li>
+
+
+                                            {% endfor %}
+										</ul>
+									</li>
+
+								</ul>
+							</nav>
+						</div>
+						<div class="col-lg-2 align-self-lg-center d-none d-lg-block">
+							<div class="text-center">
+								<a href=" {% static '/' %} " class="brk-header__logo brk-header__item @@modifier">
+									<img class="brk-header__logo-1 lazyload"
+										src=" {% static 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' %} "
+										data-src=" {% static 'img/logo.svg' %} " alt="alt">
+									<img class="brk-header__logo-2 lazyload"
+										src=" {% static 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' %} "
+										data-src=" {% static 'img/logo-dark.svg' %} " alt="alt">
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-5 align-self-lg-stretch text-lg-right">
+							<div class="brk-header__title font__family-montserrat font__weight-bold">خرید ها</div>
+							<div class="brk-call-us brk-header__item">
+								<a href=" {% static 'tel:88001234567' %} " class="brk-call-us__number"><i class="fa fa-phone"
+										aria-hidden="true"></i> 8 800 12 34 567</a>
+								<a href=" {% static 'tel:88001234567' %} " class="brk-call-us__link"><i class="fa fa-phone"
+										aria-hidden="true"></i></a>
+							</div>
+
+							<div class="brk-mini-cart brk-header__item">
+								<a href=" {% static 'cart.html' %} " class="brk-mini-cart__open d-flex">
+									<i class="fa fa-shopping-basket" aria-hidden="true"></i>
+									<span
+										class="brk-mini-cart__label font__family-montserrat font__weight-medium text-uppercase letter-spacing-60 font__size-10 opacity-80">My
+										cart</span>
+									<span class="brk-mini-cart__title">سبد خرید</span>
+									<span class="brk-mini-cart__count">4</span>
+								</a>
+								<div class="brk-mini-cart__menu">
+									<div class="brk-mini-cart__header">
+										<span class="font__family-montserrat font__weight-bold font__size-18">سبد
+											خرید</span>
+									</div>
+									<div class="brk-mini-cart__products">
+										<div class="brk-mini-cart__product">
+											<div class="brk-mini-cart__product--img">
+												<img class="lazyload"
+													src=" {% static 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' %} "
+													data-src=" {% static 'img/shop/shop-setout-2.png' %} " alt="alt">
+											</div>
+											<div class="brk-mini-cart__product--title-price">
+												<a href="#">
+													<h4
+														class="font__family-montserrat font__size-16 line__height-21 font__weight-semibold text-truncate">
+														Some shop item</h4>
+												</a>
+												<span
+													class="brk-mini-cart__product--old-price font__family-montserrat">$26.00</span>
+												<span
+													class="brk-mini-cart__product--price font__family-montserrat">$16.00</span>
+											</div>
+											<div class="brk-quantity">
+												<span class="brk-quantity__arrows minus"></span>
+												<input class="brk-quantity__value" name="quantity" type="text"
+													value="2">
+												<span class="brk-quantity__arrows plus"></span>
+											</div>
+											<a href="#" class="brk-mini-cart__product--remove remove"><i
+													class="fa fa-times-circle" aria-hidden="true"></i></a>
+										</div>
+										<div class="brk-mini-cart__product">
+											<div class="brk-mini-cart__product--img">
+												<img class="lazyload"
+													src=" {% static 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' %} "
+													data-src=" {% static 'img/shop/shop-setout-2.png' %} " alt="alt">
+											</div>
+											<div class="brk-mini-cart__product--title-price">
+												<a href="#">
+													<h4
+														class="font__family-montserrat font__size-16 line__height-21 font__weight-semibold text-truncate">
+														Some shop item</h4>
+												</a>
+												<span
+													class="brk-mini-cart__product--old-price font__family-montserrat">$26.00</span>
+												<span
+													class="brk-mini-cart__product--price font__family-montserrat">$16.00</span>
+											</div>
+											<div class="brk-quantity">
+												<span class="brk-quantity__arrows minus"></span>
+												<input class="brk-quantity__value" name="quantity" type="text"
+													value="2">
+												<span class="brk-quantity__arrows plus"></span>
+											</div>
+											<a href="#" class="brk-mini-cart__product--remove remove"><i
+													class="fa fa-times-circle" aria-hidden="true"></i></a>
+										</div>
+										<div class="brk-mini-cart__product">
+											<div class="brk-mini-cart__product--img">
+												<img class="lazyload"
+													src=" {% static 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' %} "
+													data-src=" {% static 'img/shop/shop-setout-2.png' %} " alt="alt">
+											</div>
+											<div class="brk-mini-cart__product--title-price">
+												<a href="#">
+													<h4
+														class="font__family-montserrat font__size-16 line__height-21 font__weight-semibold text-truncate">
+														Some shop item</h4>
+												</a>
+												<span
+													class="brk-mini-cart__product--old-price font__family-montserrat">$26.00</span>
+												<span
+													class="brk-mini-cart__product--price font__family-montserrat">$16.00</span>
+											</div>
+											<div class="brk-quantity">
+												<span class="brk-quantity__arrows minus"></span>
+												<input class="brk-quantity__value" name="quantity" type="text"
+													value="2">
+												<span class="brk-quantity__arrows plus"></span>
+											</div>
+											<a href="#" class="brk-mini-cart__product--remove remove"><i
+													class="fa fa-times-circle" aria-hidden="true"></i></a>
+										</div>
+										<div class="brk-mini-cart__product">
+											<div class="brk-mini-cart__product--img">
+												<img class="lazyload"
+													src=" {% static 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' %} "
+													data-src=" {% static 'img/shop/shop-setout-2.png' %} " alt="alt">
+											</div>
+											<div class="brk-mini-cart__product--title-price">
+												<a href="#">
+													<h4
+														class="font__family-montserrat font__size-16 line__height-21 font__weight-semibold text-truncate">
+														Some shop item</h4>
+												</a>
+												<span
+													class="brk-mini-cart__product--old-price font__family-montserrat">$26.00</span>
+												<span
+													class="brk-mini-cart__product--price font__family-montserrat">$16.00</span>
+											</div>
+											<div class="brk-quantity">
+												<span class="brk-quantity__arrows minus"></span>
+												<input class="brk-quantity__value" name="quantity" type="text"
+													value="2">
+												<span class="brk-quantity__arrows plus"></span>
+											</div>
+											<a href="#" class="brk-mini-cart__product--remove remove"><i
+													class="fa fa-times-circle" aria-hidden="true"></i></a>
+										</div>
+									</div>
+									<div class="brk-mini-cart__links">
+										<div class="brk-mini-cart__links--wrap">
+											<a class="brk-mini-cart__links--cart" href=" {% static 'cart.html' %} "><i
+													class="fa fa-shopping-basket"></i> Cart</a>
+											<a class="brk-mini-cart__links--checkout" href=" {% static 'checkout.html' %} ">Proceed to
+												checkout <i class="far fa-arrow-right"></i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="brk-search brk-header__item">
+								<div class="brk-search__open">
+									<i class="fa fa-search" aria-hidden="true"></i>
+									<div class="brk-search__title">Search website</div>
+								</div>
+								<div class="brk-search__block">
+									<div class="brk-search__header">
+										<span
+											class="font__family-montserrat font__weight-bold font__size-18">Search</span>
+									</div>
+									<form class="brk-search__form" role="search" method="get" action="#">
+										<input name="s" maxlength="50" type="search" value=""
+											placeholder="Enter search text">
+										<button type="submit"><i class="fas fa-search"></i></button>
+									</form>
+									<span class="brk-search__close font__family-montserrat font__weight-medium">Close <i
+											class="fas fa-times"></i></span>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+{% endblock %}

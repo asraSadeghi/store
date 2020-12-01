@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3> {{ article.title }}</h3>
+    <small> {{ article.publish|timesince }}</small>
+    <p> {{ article.body|safe }}</p>
+{% endblock %}
