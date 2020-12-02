@@ -1,8 +1,8 @@
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '5h*ab5*ls@ufzjeqn2=^&@v8eeas%ot5i&+(9%hx353fut_%b!'
-DEBUG = True
-ALLOWED_HOSTS = []
+DEBUG = False
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 INSTALLED_APPS = [
@@ -55,10 +55,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'A.wsgi.application'
 
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    'accounts.authenticate.EmailAuthBackend',
-]
+# AUTHENTICATION_BACKENDS = [
+#     'django.contrib.auth.backends.ModelBackend',
+#     'accounts.authenticate.EmailAuthBackend',
+# ]
 
 
 # Database
@@ -118,6 +118,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'static'),
 )
+
 
 #ckeditor
 #CKEDITOR_BASEPATH = 'static/ckeditor/ckeditor'

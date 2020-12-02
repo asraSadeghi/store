@@ -26,21 +26,18 @@
 								</a>
 							</div>
 							<div class="brk-header__element brk-header__element_skin-1 brk-header__item">
-								<?php
-								if(isset($_SESSION['user_id'])){  ?>
-								<a href=" {% static 'index.php?c=user&a=logout' %} " class="brk-header__element--wrap">
+
+								 {% if request.user.is_authenticated %}
+								 <a href=" {% url 'accounts:logout' %} " class="brk-header__element--wrap">
 									<i class="fas fa-sign-in-alt"></i>
-									<span class="brk-header__element--label"><?php  echo $_SESSION['user_name']; ?></span>
-								</a>
-								<?php } else
-								{?>
-
-										<i class="fas fa-sign-in-alt"></i>
-										<span class="brk-header__element--label"><?php echo "<a href=' {% static 'index.php?c=user&a=register' %} '>ثبت نام</a>";
-											echo "<a href=' {% static 'index.php?c=user&a=login' %} '>ورود</a>";?></span>
-
-								<?php }
-								?>
+									<span class="brk-header__element--label">خروج</span>
+								 </a>
+                                 {% else %}
+                                     <a href=" {% url 'accounts:login' %} " class="brk-header__element--wrap">
+									<i class="fas fa-sign-in-alt"></i>
+									<span class="brk-header__element--label">ورود</span>
+                                     </a>
+								 {% endif %}
 
 							</div>
 						</div>

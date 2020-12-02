@@ -3,7 +3,7 @@
 <html dir="rtl" lang="fa" data-brk-skin="brk-blue.css">
 
 <head>
-	<title>پوژمان</title>
+	<title>{% block title %}{% endblock %}</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1">
 	<meta name="format-detection" content="telephone=no">
@@ -81,7 +81,7 @@
 
 
     {% include 'inc/navbar.html' %}
-    {% include 'inc/slider.html' %}
+{#    {% include 'inc/slider.html' %}#}
 
     <div class="jumbotron">
         {% include 'inc/messages.html' %}
