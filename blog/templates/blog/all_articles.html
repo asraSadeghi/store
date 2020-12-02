@@ -1,9 +1,10 @@
-{% load static %}
 {% extends 'base.html' %}
+{% load static %}
+{% block title %}وبلاگ{% endblock %}
 {% block content %}
     <div class="card">
     {% for article in all_articles %}
-        <a href="{{ article.get_absolute_url }}" class="card-body">   {{ article.title }}</a>
+        <a href="{{ article.get_absolute_url }}" class="card-body">{{ article.title }}</a>
     {% endfor %}
 </div>
 {% endblock %}
