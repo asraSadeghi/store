@@ -9,7 +9,7 @@ def home(request, slug=None):
 	if slug:
 		category = get_object_or_404(Category, slug=slug)
 		products = products.filter(category=category)
-	return render(request, 'shop/home.html', {'products':products, 'categories':categories})
+	return render(request, 'shop/shop.html', {'products':products, 'categories':categories})
 
 
 def product_detail(request, slug):

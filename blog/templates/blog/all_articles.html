@@ -2,9 +2,82 @@
 {% load static %}
 {% block title %}وبلاگ{% endblock %}
 {% block content %}
-    <div class="card">
-    {% for article in all_articles %}
-        <a href="{{ article.get_absolute_url }}" class="card-body">{{ article.title }}</a>
+
+   <div class="breadcrumbs__section breadcrumbs__section-thin brk-bg-center-cover lazyload" style="padding-top: 75px;padding-bottom: 47px" data-bg="{% static 'img/1920x258_1.jpg' %}" data-brk-library="component__breadcrumbs_css">
+		<span class="brk-abs-bg-overlay brk-bg-grad opacity-80"></span>
+		<div class="breadcrumbs__wrapper">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-12 col-lg-6">
+						<div class="d-flex justify-content-lg-end justify-content-start pr-40 pr-xs-0 breadcrumbs__title">
+							<h2 class="brk-white-font-color font__weight-semibold font__size-48 line__height-68 font__family-montserrat">
+								وبلاگ
+							</h2>
+						</div>
+					</div>
+					<div class="col-12 col-lg-6">
+						<div class="pt-25 pb-35 position-static position-lg-relative breadcrumbs__subtitle">
+							<h3 class="brk-white-font-color font__family-montserrat font__weight-medium font__size-18 line__height-21 text-uppercase mb-15">
+								Check all our services
+							</h3>
+							<ol class="breadcrumb font__family-montserrat font__size-15 line__height-16 brk-white-font-color">
+								<li>
+									<a href="/">صفجه اصلی</a>
+									<i class="fal fa-chevron-right icon"></i>
+								</li>
+								<li class="active">بلاگ</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+      <div class="row">
+     {% for article in all_articles %}
+								<div class="col-12">
+									<div class="brk-sc-card-horizontal mb-30" data-brk-library="component__shop_cards,fancybox">
+										<div class="row no-gutters">
+											<div class="col-12 col-sm-6 col-md-5 col-lg-4">
+												<div class="brk-sc-card-horizontal__img-container d-flex align-items-center justify-content-center pl-15 pr-15">
+													<img src="img/shop/shop-win-2.jpg" alt="alt" class="brk-sc-card-horizontal__img">
+													<span class="brk-sc-card-horizontal__overlay brk-bg-gradient-bottom-92"></span>
+													<div class="flip-box__split-actions flip-box__split-actions_small">
+														<a href="#" class="add-cart d-flex align-items-center justify-content-center"><i class="fal fa-shopping-cart"></i></a>
+														<a href="img/shop/shop-win-2.jpg" class="add-search d-flex align-items-center justify-content-center fancybox"><i class="fal fa-search"></i></a>
+														<a href="#" class="add-wishlist d-flex align-items-center justify-content-center"><i class="fal fa-star"></i></a>
+														<a href="#" class="add-compare d-flex align-items-center justify-content-center"><i class="fal fa-exchange-alt"></i></a>
+													</div>
+												</div>
+											</div>
+											<div class="col-12 col-sm-6 col-md-7 col-lg-8">
+												<div class="brk-sc-card-horizontal__about d-flex flex-column">
+													<div class="brk-sc-card-horizontal__main-info d-flex align-items-center flex-wrap">
+														<div class="d-flex flex-column mr-auto">
+															<a href="{{ article.get_absolute_url }}" class="font__family-montserrat font__size-16 font__weight-bold line__height-16 mb-1">{{ article.title }}</a>
+
+														</div>
+														<div class="mt-10 mb-10">
+
+														</div>
+													</div>
+													<div class="brk-sc-card-horizontal__description d-flex align-items-center">
+														<p class="brk-sc-card-horizontal__description-paragraph font__family-open-sans font__size-14 font__weight-semibold line__height-21">
+															{{ article.body }}
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
     {% endfor %}
-</div>
+    </div>
+
+
 {% endblock %}
+
+

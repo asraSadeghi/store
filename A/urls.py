@@ -3,6 +3,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from . import views
 
 
 urlpatterns = [
@@ -12,7 +13,9 @@ urlpatterns = [
     path('orders/', include('orders.urls', namespace='orders')),
     path('shop/', include('shop.urls', namespace='shop')),
     path('ckeditor/',include('ckeditor_uploader.urls')),
-    path('blog/', include('blog.urls', namespace='blog'))
+    path('blog/', include('blog.urls', namespace='blog')),
+    path('', views.home_page, name='home'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()

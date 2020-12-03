@@ -5,6 +5,7 @@ from django.urls import reverse
 from A import settings
 from ckeditor_uploader.fields import RichTextUploadingField
 
+
 class PublishedArticlesManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(status='publish')
@@ -19,7 +20,7 @@ class Article(models.Model):
     title = models.CharField(max_length=300)
     slug = models.SlugField(max_length=120, unique=True)
     writer = models.ForeignKey(User, on_delete=models.CASCADE)
-    body =RichTextUploadingField()
+    body = RichTextUploadingField()
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -31,4 +32,4 @@ class Article(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('blog:article_detail' , args=[self.id ,self.slug])
+        return reverse('blog:article_detail', args=[self.id, self.slug])
