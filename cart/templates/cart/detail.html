@@ -1,37 +1,116 @@
 {% extends 'base.html' %}
-
+{% load static %}
+{% load thumbnail %}
+{% block title %}سبد خرید{% endblock %}
 {% block content %}
+<div class="breadcrumbs__section breadcrumbs__section-thin brk-bg-center-cover lazyload" style="padding-top: 75px;padding-bottom: 47px" data-bg="{% static 'img/1920x258_1.jpg' %}" data-brk-library="component__breadcrumbs_css">
+		<span class="brk-abs-bg-overlay brk-bg-grad opacity-80"></span>
+		<div class="breadcrumbs__wrapper">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-12 col-lg-6">
+						<div class="d-flex justify-content-lg-end justify-content-start pr-40 pr-xs-0 breadcrumbs__title">
+							<h2 class="brk-white-font-color font__weight-semibold font__size-48 line__height-68 font__family-montserrat">
+								{{ product.name }}
+							</h2>
+						</div>
+					</div>
+					<div class="col-12 col-lg-6">
+						<div class="pt-25 pb-35 position-static position-lg-relative breadcrumbs__subtitle">
+							<h3 class="brk-white-font-color font__family-montserrat font__weight-medium font__size-18 line__height-21 text-uppercase mb-15">
+								Check all our services
+							</h3>
+							<ol class="breadcrumb font__family-montserrat font__size-15 line__height-16 brk-white-font-color">
+								<li>
+									<a href="/">صفحه اصلی</a>
+									<i class="fal fa-chevron-right icon"></i>
+								</li>
+                                <li>
+									<a href="{% url 'shop:home' %}">فروشگاه</a>
+									<i class="fal fa-chevron-right icon"></i>
+								</li>
 
-<table class="table table-dark">
-    <thead>
-    <tr>
-        <th scope="col">#</th>
-        <th scope="col">Product</th>
-        <th scope="col">Quantity</th>
-        <th scope="col">Unit Price</th>
-        <th scope="col">Total Price</th>
-        <th scope="col">Remove</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for item in cart %}
-    <tr>
-        <th scope="row">{{ forloop.counter }}</th>
-        <td>{{ item.product }}</td>
-        <td>{{ item.quantity }}</td>
-        <td>{{ item.price }}</td>
-        <td>{{ item.total_price }}</td>
-        <td><a href="{% url 'cart:cart_remove' item.product.id %}">Remove</a></td>
-    </tr>
-    {% endfor %}
-    <tr>
-        <td>Total</td>
-        <td colspan="4"></td>
-        <td>{{ cart.get_total_price }}</td>
-    </tr>
-    </tbody>
-</table>
+								<li class="active">سبد خرید</li>
 
-    <a href="{% url 'orders:create' %}" class="btn btn-primary">Checkout</a>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+   <div class="container"  style="padding: 2rem">
+					<table>
+						 <thead>
+                                <tr>
+                                    <th scope="col">ردیف</th>
+{#                                    <th scope="col">تصویر</th>#}
+                                    <th scope="col">محصول</th>
+                                    <th scope="col">تعداد</th>
+                                    <th scope="col">قیمت(هزار تومان) </th>
+                                    <th scope="col">قیمت کل(هزار تومان)</th>
+                                    <th scope="col">حذف</th>
+                                </tr>
+                         </thead>
+						<tbody>
+						 {% for item in cart %}
+                                <tr>
+                                    <th scope="row">{{ forloop.counter }}</th>
+{#                                    <td>#}
+{#                                        {% thumbnail item.image "300x300" as img %}#}
+{#                                        <div class="brk-mini-cart__product--img">#}
+{#												<img class="lazyload"#}
+{#													src=" {{ img.url }} "#}
+{#													data-src=" {{ img.url }} " alt="alt">#}
+{#											</div>#}
+{#                                        {% endthumbnail %}#}
+{#                                    </td>#}
+                                    <td>{{ item.product }}</td>
+
+                                     <td>  <div class="brk-quantity">
+												<span class="brk-quantity__arrows minus"></span>
+												<input class="brk-quantity__value" name="quantity" type="text"
+													value="{{ item.quantity  }}">
+												<span class="brk-quantity__arrows plus"></span>
+                                        </div>
+                                     </td>
+                                    <td>{{ item.price }}</td>
+                                    <td>{{ item.total_price }}</td>
+                                    <td>
+                                        <div href="{% url 'cart:cart_remove' item.product.id %}" class="brk-mini-cart__product--remove remove">
+                                            <i class="fa fa-times-circle" aria-hidden="true"></i></div>
+                                    </td>
+                                </tr>
+                         {% endfor %}
+
+                        </tbody>
+                             <tfoot>
+
+                                <td>قیمت نهایی</td>
+                                <td>{{ cart.get_total_price }}(هزار تومان)</td>
+                                <td colspan="2"> </td>
+                                 <td>
+                                    <form class="brk-form-round brk-form-round-btn-inside-full w-100" >
+                                        <input type="text" placeholder="کد تخفیف" style="direction: ltr; font-size: large">
+                                        <button class="btn btn-inside-out btn-lg border-radius-30 btn-shadow mx-0 my-0 brk-library-rendered rendered" data-brk-library="component__button">
+                                            <span class="before">ثبت</span><span class="text">ثبت</span><span class="after">ثبت</span>
+                                        </button>
+						        	</form>
+                                </td>
+                                <td >
+
+                                    <a href="{% url 'orders:create' %}" class="btn btn-inside-out btn-lg border-radius-30 btn-shadow mx-0 my-0 brk-library-rendered rendered" data-brk-library="component__button">
+                                            <span class="before">پرداخت</span><span class="text">پرداخت</span><span class="after">پرداخت</span>
+                                        </a>
+                                </td>
+
+                            </tfoot>
+					</table>
+
+				</div>
+
+
 
 {% endblock %}

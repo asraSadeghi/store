@@ -127,11 +127,11 @@
 									<div class="brk-mini-cart__products">
                                         {% for item in cart %}
 										<div class="brk-mini-cart__product">
-											<div class="brk-mini-cart__product--img">
-												<img class="lazyload"
-													src=" {% static 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' %} "
-													data-src=" {% static 'img/shop/shop-setout-2.png' %} " alt="alt">
-											</div>
+{#											<div class="brk-mini-cart__product--img">#}
+{#												<img class="lazyload"#}
+{#													src=" {% static 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' %} "#}
+{#													data-src=" {% static 'img/shop/shop-setout-2.png' %} " alt="alt">#}
+{#											</div>#}
 											<div class="brk-mini-cart__product--title-price">
 												<a href="#">
 													<h4
@@ -149,7 +149,7 @@
 													value="2">
 												<span class="brk-quantity__arrows plus"></span>
 											</div>
-											<a href="#" class="brk-mini-cart__product--remove remove"><i
+											<a href="{% url 'cart:cart_remove' item.product.id %}" class="brk-mini-cart__product--remove remove"><i
 													class="fa fa-times-circle" aria-hidden="true"></i></a>
 										</div>
 										{% endfor %}

@@ -157,11 +157,58 @@
 	<div class="main-wrapper">
 		<main class="main-container pt-80">
 			<section>
-				<div class="container">
-					  <h3> {{ article.title }}</h3>
-                      <small> {{ article.publish|timesince }}</small>
-                      <p> {{ article.body|safe }}</p>
-                </div>
+                	<div class="col-12 col-lg-12 col-xl-12">
+						<div class="brs-posts-container pt-20" data-brk-library="component__blog_page">
+							<div class="brk-post-full">
+								<div class="brk-post-full__meta font__family-montserrat font__weight-semibold font__size-13 line__height-14 text-uppercase">
+									<a href="#" class="brk-post-full__meta-date">
+										<i class="far fa-clock"></i>
+										<span>{{ article.publish|timesince }}</span>
+									</a>
+
+								</div>
+								<h2 class="brk-post-full__title font__family-montserrat font__size-lg-36 font__size-26 line-height-1 font__weight-semibold mt-10 mb-35">
+									{{ article.title }}
+								</h2>
+								<p class="brk-dark-font-color font__family-open-sans font__size-15 font__weight-normal line__height-26 mb-25">
+								{{ article.body|safe }}
+                                </p>
+								<div class="d-flex align-items-start mb-10">
+									<span class="font-dark-color-2 font__Family-montserrat font__size-15 line-height-1-5 my-2 font__weight-semibold text-uppercase mr-10 brk-post-full__fixed-width">Tags:</span>
+									<ul class="brk-tags brk-tags_solid font__family-montserrat" data-brk-library="component__tags">
+										<li><a href="#" rel="tag">Network</a></li>
+
+									</ul>
+								</div>
+
+							</div>
+							<div class="mb-40 col-6">
+								<div class="brk-reply mt-40" data-brk-library="component__forum_post">
+									<h3 class="brk-reply__header font__family-montserrat font__size-21 font__weight-bold line__height-60">Leave a comment</h3>
+									<form action="#" class="brk-reply__form brk-form-strict" data-brk-library="component__form">
+										<div class="row" >
+											<div class="col-lg-6 col-12">
+												<input name="name" type="text" placeholder="نام" style="text-decoration-color: #0b2e13">
+											</div>
+											<div class="col-lg-6 col-12">
+												<input name="email" type="email" placeholder="ایمیل"style="text-decoration-color: #0b2e13">
+											</div>
+											<div class="col-12">
+												<textarea name="textarea" placeholder="نظر"style="text-decoration-color: #0b2e13"></textarea>
+											</div>
+										</div>
+										<button class="btn btn-inside-out btn-md btn-icon border-radius-25 font__family-open-sans font__weight-semibold btn-icon-right m-0 mt-25" data-brk-library="component__button" style="text-align: end">
+											<i class="fas fa-long-arrow-alt-right icon-inside"></i>
+											<span class="before">ثبت نظر</span><span class="text">ثبت</span><span class="after">ثبت نظر</span>
+										</button>
+									</form>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+
 			</section>
 
 		</main>
@@ -202,7 +249,7 @@
 						</div>
 						<div class="brk-footer__rights pt-15 pb-20 text-center">
 							<p class="font__family-open-sans font__size-14 font__weight-normal line__height-14">© 2018
-								Berserk All rights reserved</p>
+								طراحی شده توسط</p>
 						</div>
 					</div>
 				</div>

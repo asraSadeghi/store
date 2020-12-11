@@ -20,6 +20,7 @@ class Article(models.Model):
     title = models.CharField(max_length=300)
     slug = models.SlugField(max_length=120, unique=True)
     writer = models.ForeignKey(User, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='article/%Y/%m/%d/')
     body = RichTextUploadingField()
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
