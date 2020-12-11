@@ -523,6 +523,125 @@
 				</div>
 			</section>
 
+    {% include 'blog/all_articles.html' %}
+    <section>
+
+    	<div class="text-center mb-80">
+					<h4 class="title__heading-04 title__heading-sub font__family-montserrat font__size-50 font__weight-bold wow zoomIn brk-library-rendered" data-brk-library="component__title" style="visibility: visible; animation-name: zoomIn;"><span class="brk-base-font-color"> آخرین مفالات</span></h4>
+					<h2 class="title__heading-04 title__heading-main font__family-pacifico font__size-36 brk-library-rendered" data-brk-library="component__title"><span class="brk-base-font-color">بلاگ</span></h2>
+        </div>
+{#        {% include 'blog/all_articles.html' %}#}
+         {% for article in all_articles %}
+         	<div class="container mt-70 mt-md-140" style="margin: 1rem !important">
+					<div class="mt-70" style="margin-top: 0px !important;">
+						<div class="row align-items-center justify-content-center" data-brk-library="component__image_frames,fancybox">
+							<div class="col-lg-4 flex-lg-last">
+								<div class="text-center text-lg-left">
+                                    {% thumbnail article.image "300x300" as imgg %}
+									<a href="{{ article.get_absolute_url}}" class="frame-image image-popup img-square shadow fancybox">
+										<img src="{{ imgg.url }}" alt="alt">
+										<span class="square"></span>
+									</a>
+                                    {% endthumbnail %}
+								</div>
+							</div>
+							<div class="col-lg-8 text-center text-lg-left mt-30 mt-lg-0">
+
+								<div class="show-inline-block">
+									<h2 class="font__family-playfair font__weight-bold font__size-36 line__height-42 highlight-massive highlight-massive-gray">
+										{{ article.title }}
+										<span class="after"></span>
+									</h2>
+								</div>
+								<p class="font__family-open-sans font__size-16 line__height-24 text-gray-light mt-30">
+                                {{ article.body|safe|truncatewords:"50"|linebreaks }}
+                                </p>
+									<a href="{{ article.get_absolute_url }}" class="btn btn-pos btn-lg border-radius-10 font__weight-bold ml-0 mr-0 mt-30" data-brk-library="component__button">
+										<i class="fa icon-inside" aria-hidden="true"></i>
+										<span></span>ادامه مطلب
+									</a>
+							</div>
+						</div>
+					</div>
+				</div>
+         {% endfor %}
+
+    </section>
+
+
+
+    {# ارتباط با ما #}
+    <section>
+			<div class="pt-80 pb-80 position-relative z-index-2 side-circles text-center lazyload"
+				data-bg="img/demo_shop_trendy/bg-patterns/8.png" data-brk-library="component__social_block">
+				<span class="brk-base-bg-gradient-90deg-96 brk-abs-overlay"></span>
+				<div class="container all-light">
+					<p
+						class="font__family-montserrat font__weight-semibold font__size-18 text-light-blue letter-spacing-200 text-uppercase">
+						با ما در ارتباط باشید</p>
+					<h3
+						class="font__family-montserrat font__weight-semibold font__size-36 letter-spacing-100 text-uppercase mt-10">
+						تماس با ما</h3>
+					<p class="font__size-16 font__family-open-sans line__height-26 text-gray mt-20">
+						تیم پشتیبانی به صورت ۲۴ ساعته آماده پاسخگویی <br class="hide show-md-block"></p>
+					<div class="row mt-30">
+						<div class="col-6 col-md-4 col-lg-2">
+							<div class="social__icon-round">
+								<a href="#" class="icon-wrap"><i class="brk-icon fab fa-whatsapp"></i></a>
+								<h4 class="font__family-montserrat font__weight-light font__size-28 text-light-blue">
+									Whats App</h4>
+								<p class="font__family-montserrat font__weight-medium font__size-16">Follow Now</p>
+							</div>
+						</div>
+						<div class="col-6 col-md-4 col-lg-2">
+							<div class="social__icon-round">
+								<a href="#" class="icon-wrap"><i class="brk-icon fab fa-linkedin"></i></a>
+								<h4 class="font__family-montserrat font__weight-light font__size-28 text-light-blue">
+									Linked in</h4>
+								<p class="font__family-montserrat font__weight-medium font__size-16">Follow Now</p>
+							</div>
+						</div>
+						<div class="col-6 col-md-4 col-lg-2">
+							<div class="social__icon-round">
+								<a href="#" class="icon-wrap"><i class="brk-icon fab fa-github"></i></a>
+								<h4 class="font__family-montserrat font__weight-light font__size-28 text-light-blue">
+									Git Hub</h4>
+								<p class="font__family-montserrat font__weight-medium font__size-16">Follow Now</p>
+							</div>
+						</div>
+						<div class="col-6 col-md-4 col-lg-2">
+							<div class="social__icon-round">
+								<a href="#" class="icon-wrap"><i class="brk-icon fab fa-telegram"></i></a>
+								<h4 class="font__family-montserrat font__weight-light font__size-28 text-light-blue">
+									Telegram</h4>
+								<p class="font__family-montserrat font__weight-medium font__size-16">Follow Now</p>
+							</div>
+						</div>
+						<div class="col-6 col-md-4 col-lg-2">
+							<div class="social__icon-round">
+								<a href="#" class="icon-wrap"><i class="brk-icon fab fa-instagram"></i></a>
+								<h4 class="font__family-montserrat font__weight-light font__size-28 text-light-blue">
+									Instagram</h4>
+								<p class="font__family-montserrat font__weight-medium font__size-16">Follow Now</p>
+							</div>
+						</div>
+
+						<div class="col-6 col-md-4 col-lg-2">
+							<div class="social__icon-round">
+								<a href="#" class="icon-wrap"><i class="brk-icon fab fa-google"></i></a>
+								<h4 class="font__family-montserrat font__weight-light font__size-28 text-light-blue">
+									Google +</h4>
+								<p class="font__family-montserrat font__weight-medium font__size-16">Follow Now</p>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+
 
 
 {% endblock %}
