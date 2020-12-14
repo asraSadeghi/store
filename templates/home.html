@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load compile_static %}
 {% load thumbnail %}
 {% block title %}پوژمان{% endblock %}
 {% load static %}
@@ -530,7 +531,6 @@
 					<h4 class="title__heading-04 title__heading-sub font__family-montserrat font__size-50 font__weight-bold wow zoomIn brk-library-rendered" data-brk-library="component__title" style="visibility: visible; animation-name: zoomIn;"><span class="brk-base-font-color"> آخرین مفالات</span></h4>
 					<h2 class="title__heading-04 title__heading-main font__family-pacifico font__size-36 brk-library-rendered" data-brk-library="component__title"><span class="brk-base-font-color">بلاگ</span></h2>
         </div>
-{#        {% include 'blog/all_articles.html' %}#}
          {% for article in all_articles %}
          	<div class="container mt-70 mt-md-140" style="margin: 1rem !important">
 					<div class="mt-70" style="margin-top: 0px !important;">
