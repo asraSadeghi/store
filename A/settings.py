@@ -21,7 +21,8 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'contact.apps.ContactConfig',
-    'django_scss',
+
+
 
 
 
@@ -111,15 +112,17 @@ USE_L10N = True
 USE_TZ = True
 
 #Ckaeditor
-#STATIC_ROOT=os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT=os.path.dirname(os.path.abspath(__file__))
 
 # Static files (CSS, JavaScript, Images)
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    # other finders..
-    'django_scss.finders.SCSSFinder',
-)
+# STATICFILES_FINDERS = (
+#     'django.contrib.staticfiles.finders.FileSystemFinder',
+#     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#     # other finders..
+#     'django_scss.finders.SCSSFinder',
+# )
+
+
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
